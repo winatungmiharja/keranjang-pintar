@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/keranjang-pintar/static/css/main.3e2e7684.chunk.css",
+    "main.js": "/keranjang-pintar/static/js/main.f41c343b.chunk.js",
+    "main.js.map": "/keranjang-pintar/static/js/main.f41c343b.chunk.js.map",
+    "runtime-main.js": "/keranjang-pintar/static/js/runtime-main.8c48641b.js",
+    "runtime-main.js.map": "/keranjang-pintar/static/js/runtime-main.8c48641b.js.map",
+    "static/css/2.b7461287.chunk.css": "/keranjang-pintar/static/css/2.b7461287.chunk.css",
+    "static/js/2.74f3041d.chunk.js": "/keranjang-pintar/static/js/2.74f3041d.chunk.js",
+    "static/js/2.74f3041d.chunk.js.map": "/keranjang-pintar/static/js/2.74f3041d.chunk.js.map",
+    "index.html": "/keranjang-pintar/index.html",
+    "static/css/2.b7461287.chunk.css.map": "/keranjang-pintar/static/css/2.b7461287.chunk.css.map",
+    "static/css/main.3e2e7684.chunk.css.map": "/keranjang-pintar/static/css/main.3e2e7684.chunk.css.map",
+    "static/js/2.74f3041d.chunk.js.LICENSE.txt": "/keranjang-pintar/static/js/2.74f3041d.chunk.js.LICENSE.txt",
+    "static/js/main.f41c343b.chunk.js.LICENSE.txt": "/keranjang-pintar/static/js/main.f41c343b.chunk.js.LICENSE.txt",
+    "static/media/handphone.56e1e397.png": "/keranjang-pintar/static/media/handphone.56e1e397.png",
+    "static/media/keranjang.6add358c.png": "/keranjang-pintar/static/media/keranjang.6add358c.png",
+    "static/media/login.jpg": "/keranjang-pintar/static/media/login.994e2d6f.jpg",
+    "static/media/logo.103b5fa1.svg": "/keranjang-pintar/static/media/logo.103b5fa1.svg",
+    "static/media/paper-dashboard.scss?v=1.3.0": "/keranjang-pintar/static/media/nucleo-icons.ec16bc4c.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c48641b.js",
+    "static/css/2.b7461287.chunk.css",
+    "static/js/2.74f3041d.chunk.js",
+    "static/css/main.3e2e7684.chunk.css",
+    "static/js/main.f41c343b.chunk.js"
+  ]
+}
