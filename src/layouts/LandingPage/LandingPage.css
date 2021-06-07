@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+.button-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
+
+.landing-page {
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    height : 800px;
+}
+
+
+.image-container {
+    position :relative;
+    padding-left: 7vw;
+    
+}
+
+.text-container {
+    margin-top: 25vh;
+}
+
+.image {
+    position :absolute
+}
+.keranjang-image {
+    width: 275px;
+    top : 230px;
+    left : 40%;
+    height: auto;
+    
+}
+.handphone-image {
+    width: 325px;
+    height: auto;
+}
+@media only screen and (max-width: 800px) {
+    .handphone-image {
+        width: 0;
+    }
+    .keranjang-image {
+        width:0;
+    }
+}
+.text-keranjang {
+    line-height: 30px;
+    padding: 0;
+    margin :0;
+    
+    font-size: 70px;
+}
+
+.text-pintar {
+    
+    font-weight: 700;
+    font-size: 70px;
+}
+

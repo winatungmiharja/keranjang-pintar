@@ -1,0 +1,26 @@
+.receipt-table {
+    width: 100px;
+    height: 100px;
+}
+
+table {
+    border: 1px solid black;
+    overflow-x: scroll;
+    max-height: 100px;
+}
+  
+  td,
+  th {
+    border: 1px solid black;
+    width: 1%;
+  }
+  
+  .table-fixed thead {
+    width: 97%;
+  }
+  
+  .table-fixed tbody {
+    height: 100px;
+    overflow-y: scroll;
+    width: 100%;
+  }

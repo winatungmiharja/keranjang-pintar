@@ -1,0 +1,31 @@
+.katalog-card {
+    padding-top: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+.katalog-img {
+    object-fit: cover;
+    width: 65%;
+    height: auto;
+    
+}
+
+.katalog-subtitle {
+    font-size: 10px;
+}
+
+.katalog-title {
+    font-size: 20px;
+}
+
+.katalog-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.katalog-badge-text {
+    font-size: 16px;
+}

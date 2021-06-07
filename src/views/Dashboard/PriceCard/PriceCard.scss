@@ -1,0 +1,57 @@
+.price-card {
+    background-color: #62B6DE;
+}
+
+.price-card-body {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.price-text-white {
+    color: #f4f4f4;
+    margin-top: 10px;
+}
+
+.price-text-dark-blue {
+    color: #332E4A;
+    font-size: 14px;
+}
+
+
+
+.price-text-white {
+    .price-text-dark-blue {
+        color: #332E4A;
+        font-size: 24px;
+    }
+}
+
+.price-pay-btn:hover {
+    .price-text-dark-blue {
+        color: #f4f4f4;
+    }
+}
+
+.price-hr {
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    width: 80%;
+    background-color: #f4f4f4;
+}
+
+.price-text-white-2 {
+    color: #f4f4f4;
+    margin-top: 0px;
+}
+
+
+.price-dropdown {
+    border-radius: 100px;
+    width: 60px;  
+    background-color: #EC6A38;
+}
+
+.price-pay-btn {
+    width: 50%;
+    background-color: #f4f4f4;
+}

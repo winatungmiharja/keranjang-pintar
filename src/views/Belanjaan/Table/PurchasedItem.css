@@ -1,0 +1,15 @@
+.item-container {
+    position: relative;
+}
+
+.item-image {
+    max-width: 80px;
+    max-height: 100px;
+}
+
+.item-badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+

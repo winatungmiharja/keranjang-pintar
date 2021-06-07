@@ -1,0 +1,40 @@
+body {
+    background-color: #f4f3ef;   
+}
+
+.card-img {
+    border-radius: 0cm;
+    border-top-left-radius: 11px;
+    border-bottom-left-radius: 11px;
+    width: cover;
+}
+
+.break-width {
+    height: 100px;
+     
+}
+.register-card {
+    width: 800px;
+}
+
+.register-badge {
+    position: absolute;
+    top: -40px;
+    left:-40px;
+}
+@media only screen and (max-width: 1000px) {
+    .register-card {
+        width:100%;
+    }
+    @media only screen and (max-width: 767px) {
+        .register-card {
+            width:100%;
+        }
+        .card-img {
+            border-radius: 0cm;
+            width: cover;
+        }
+        
+    };
+    
+};
