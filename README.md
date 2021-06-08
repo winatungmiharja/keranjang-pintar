@@ -1,8 +1,9 @@
 #`keranjang-pintar`
 View [Current Website](https://winatungmiharja.github.io/keranjang-pintar/)
 
-## `Check out!`
-- Still working on some scallable component
+## `Currently...!`
+- Working on payment and connect to server
+- More scallable component and user friendly
 - Those miss alignment and bugs are really distracting :)
 
 
