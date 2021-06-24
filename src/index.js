@@ -7,8 +7,13 @@ import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import App from "layouts/App.js";
+import { CartProvider } from "components/Cart";
 
 ReactDOM.render(
-  <App  />,
+  <React.StrictMode>
+    <CartProvider>
+    <App />
+    </CartProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );

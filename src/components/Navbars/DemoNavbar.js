@@ -1,23 +1,7 @@
-/*!
 
-=========================================================
-* Paper Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "components/Cart";
 import {
   Collapse,
   Navbar,
@@ -36,9 +20,11 @@ import {
   Input,
 } from "reactstrap";
 
+
 import routes from "routes.js";
 
 function Header(props) {
+  const items = useCart();
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [color, setColor] = React.useState("transparent");
@@ -80,6 +66,7 @@ function Header(props) {
   React.useEffect(() => {
     window.addEventListener("resize", updateColor.bind(this));
   });
+
   React.useEffect(() => {
     if (
       window.innerWidth < 993 &&
@@ -89,6 +76,10 @@ function Header(props) {
       sidebarToggle.current.classList.toggle("toggled");
     }
   }, [location]);
+
+
+  console.log(items);
+  
   return (
     // add or remove classes depending if we are on full-screen-maps page or not
     <Navbar
@@ -128,6 +119,7 @@ function Header(props) {
         </NavbarToggler>
         <Collapse isOpen={isOpen} navbar className="justify-content-end">
           <form>
+          
             <InputGroup className="no-border">
               <Input placeholder="Cari Produk..." />
               <InputGroupAddon addonType="append">
@@ -138,6 +130,7 @@ function Header(props) {
             </InputGroup>
           </form>
           <Nav navbar>
+            {items.length}
             <Dropdown
               nav
               isOpen={dropdownOpen}

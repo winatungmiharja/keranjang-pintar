@@ -6,8 +6,6 @@ import {
     CardBody,
     CardTitle,
     Table,
-    Row,
-    Col,
   } from "reactstrap";
 
 import PurchasedItem from './PurchasedItem.js';

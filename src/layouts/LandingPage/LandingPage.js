@@ -1,12 +1,7 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardImg, CardBody, CardTitle, CardText, Button } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
-import {
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from "reactstrap";
+import { Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
+
 
 import keranjang from './keranjang.png';
 import handphone from './handphone.png';
@@ -23,8 +18,8 @@ const LandingPage = () => {
             <Col>
             <div>
             <Breadcrumb >
-                <BreadcrumbItem><a href="#"> Belanja</a></BreadcrumbItem>
-                <BreadcrumbItem><a href="#">Bayar</a></BreadcrumbItem>
+                <BreadcrumbItem><i href="#"> Belanja</i></BreadcrumbItem>
+                <BreadcrumbItem><i href="#">Bayar</i></BreadcrumbItem>
     
                 <BreadcrumbItem active>Tanpa ngantri!</BreadcrumbItem>
             </Breadcrumb>
@@ -44,17 +39,17 @@ const LandingPage = () => {
             <Button href="#belanja" color="primary" round outline>
                   <i className="fa fa-heart"></i> Ayo!
                 </Button>
-                <Button color="primary" fab round icon title="more info" className='button-tooltip'>
+                <Button color="primary " fab round icon title="more info" className='button-tooltip'>
                   <i className="fa fa-info-circle"></i>
                 </Button>
             </Col>
             </Row>
         </Col>
         <Col xs='12' sm='12' md='7' lg='6' className='order-lg-1 order-md-2 order-sm-2 order-xs-2'>
-            <div class='image-container' style={{height: '700px'}}>
+            <div className='image-container' style={{height: '700px'}}>
              
-              <img className='image handphone-image' src={handphone}></img>
-              <img className='image keranjang-image' src={keranjang}></img>
+              <img className='image handphone-image' src={handphone} alt='x'></img>
+              <img className='image keranjang-image' src={keranjang} alt='x'></img>
             </div>
         </Col>
     </Row>

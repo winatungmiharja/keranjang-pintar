@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useRef, useEffect, useReducer} from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch, useLocation } from "react-router-dom";
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
@@ -6,19 +6,40 @@ import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
-import routes from "routes.js";
-
 import './Admin.css';
+import routes from "routes";
+
 
 var ps;
 
-const Dashboard= (props) => {
-  const [backgroundColor, setBackgroundColor] = React.useState("black");
-  const [activeColor, setActiveColor] = React.useState("info");
-  const mainPanel = React.useRef();
-  const location = useLocation();
+const initialBasket = {
+  total : 0,
+  items : {}
+}
 
-  React.useEffect(() => {
+const reducerBasket = (state,action) => {
+  switch (action.type) {
+    case "UPDATE":
+      const tempData = {...state.items};
+      
+
+      break;
+  
+    default:
+      break;
+  }
+}
+const Admin = (props) => {
+  const [basket, dispatch] = useReducer(reducerBasket, initialBasket);
+
+  const [backgroundColor, setBackgroundColor] = useState("black");
+  const [activeColor, setActiveColor] = useState("info");
+  const mainPanel = useRef();
+  const location = useLocation();
+  
+  
+
+  useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
         ps = new PerfectScrollbar(mainPanel.current, {
           wheelSpeed: 0.2,
@@ -35,7 +56,7 @@ const Dashboard= (props) => {
     };
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     mainPanel.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
@@ -47,6 +68,7 @@ const Dashboard= (props) => {
   const handleBgClick = (color) => {
     setBackgroundColor(color);
   };
+
 
   return (
     <div className="wrapper">
@@ -64,8 +86,8 @@ const Dashboard= (props) => {
             return (
               <Route
                 path={prop.layout + prop.path}
-                component={prop.component}
                 key={key}
+                component={prop.component}
               />
             );
           })}
@@ -82,4 +104,6 @@ const Dashboard= (props) => {
   );
 }
 
-export default Dashboard;
+
+
+export default Admin;

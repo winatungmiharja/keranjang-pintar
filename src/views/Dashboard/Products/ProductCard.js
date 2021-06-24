@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, Collapse, CardHeader, CardImg, CardBody, CardTitle, CardText, CardFooter } from 'reactstrap';
-import {Row, Col ,Button} from "reactstrap";
+import { Card, Collapse, CardImg, CardBody, CardFooter } from 'reactstrap';
+import {Row, Col} from "reactstrap";
 
 
 import './ProductCard.css'

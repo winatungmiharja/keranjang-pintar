@@ -5,7 +5,6 @@ import { Nav } from "reactstrap";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
-import logo from "logo.svg";
 
 var ps;
 
@@ -36,7 +35,7 @@ function Sidebar(props) {
       data-active-color={props.activeColor}
     >
       <div className="logo">
-        <a className="simple-text logo-mini">
+      <a className="simple-text logo-mini">
             <i className='nc-icon nc-bulb-63'></i>
         </a>
         <a className="simple-text logo-normal">

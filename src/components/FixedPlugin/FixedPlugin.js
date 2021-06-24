@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Button } from "reactstrap";
 
 const FixedPlugin = (props) => {
   const [classes, setClasses] = React.useState("dropdown show");
@@ -108,7 +107,7 @@ const FixedPlugin = (props) => {
           
 
           
-          <p className="blockquote-footer">Keranjang Pintar <br/>Keranjang Belanja Pintar Berbasis Komputer Vision dan Sensor untuk Membudayakan Cashier-Less Store<cite title="">Institut Teknologi Sepuluh Nopember</cite></p>
+          <p className="blockquote-footer">Keranjang Pintar <br/>Keranjang Belanja Pintar Berbasis Komputer Vision dan Sensor untuk Membudayakan Cashier-Less Store<br/><cite title="">Institut Teknologi Sepuluh Nopember</cite></p>
         </ul>
       </div>
     </div>

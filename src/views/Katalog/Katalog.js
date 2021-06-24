@@ -1,56 +1,74 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
+import { useLocation } from "react-router";
 
 // reactstrap components
 import {
-  Row, Col, Card, Button, CardImg, CardTitle, CardText, CardDeck,
-  CardSubtitle, CardBody
+  Row, Col, Alert
 } from 'reactstrap';
 import ProductCard from "./ProductCard/ProductCard.js";
 
-function Katalog() {
-  const productKatalog = [
-    {0:'Smart Balance',    1:'Cream Cheese',  2:25000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1912564081961735300/previews/G03-200x200.jpg'},
-    {0:'Kraft Grated',    1:'Parmesan Cheese',  2:56000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1913962139291228031/previews/G03-400x400.jpg'},
-    {0:'Great Value',    1:'Parmesan Cheese',  2:35000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1913956600217867859/previews/G03-400x400.jpg'},
-    {0:'Kraft',    1:'Cheddar Cheese',  2:23000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1913099502550521499/previews/G03-200x200.jpg'},
-    {0:'Sharp',    1:'Cheddar Cheese',  2:56000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1913099486125627031/previews/G03-400x400.jpg'},
-    {0:'Easy',    1:'Cheddar Cheese',  2:39000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1913099452227262093/previews/G03-400x400.jpg'},
-    {0:'Believe',    1:'Butter 50g',  2:16000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1912564059757089918/previews/G03-400x400.jpg'},
-    {0:'Honey',    1:'500 mL',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1913962139291228031/previews/G03-400x400.jpg'},
-    {0:'Cheedar Cheese',    1:'1 pack',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/184/1845908973564204796/previews/G03-400x400.jpg'},
-    {0:'Honey',    1:'500 mL',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/183/1835546445168514420/previews/G03-400x400.jpg'},
-    {0:'Orange',    1:'1 kg',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1916129412990899249/previews/G03-400x400.jpg'}, 
-    {0:'Honey',    1:'500 mL',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/183/1835546445168514420/previews/G03-400x400.jpg'},
-    {0:'Yoplait',    1:'Strawberry Yogurt',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1912026451478058555/previews/G03-400x400.jpg'},
-    {0:'Mountain High',    1:'Plain Yogurt',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1910237089861997779/previews/G03-400x400.jpg'},
-    {0:'Dannon',    1:'Oikos Plain',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1912026417185429039/previews/G03-400x400.jpg'},
-    {0:'Dannon',    1:'All Natural',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1912026391038137895/previews/G03-400x400.jpg'},
-    {0:'Chobani',    1:'Plain Yogurt',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1912025882604607000/previews/G03-400x400.jpg'},
-    {0:'Yoplait',    1:'Greek Yogurt',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1910236633974707391/previews/G03-400x400.jpg'},
-    {0:'Yoplait',    1:'Light Yogurt',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/191/1910236619160425659/previews/G03-400x400.jpg'},
-    {0:'Ultra Milk',    1:'Milk jug(500ml)',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/189/1896653105005598529/previews/G07-200x200.jpg'},
-    {0:'Ultra Milk',    1:'Milk jug(1L)',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/189/1896653093840361275/previews/G07-400x400.jpg'},
-    {0:'Lactose Free',    1:'Milk',  2:15000,  3:'https://atlas-content-cdn.pixelsquid.com/assets_v2/189/1896654128902313857/previews/G03-400x400.jpg'},
-    
-  ]
+const Katalog = (props) => {
+  const [item,setItem] = useState({});
+  const [isSuccess,setSuccess] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const onDismiss = () => setVisible(false);
 
+  async function fetchKatalog(){
+    try {
+      // const req = await fetch("https://cors-anywhere.herokuapp.com/https://keranjang-pintar.herokuapp.com/getKatalog.php");
+      const res = {"isSuccess":true,"message":"Data katalog ditemukan","data":[{"id":"4","nama":"Ultramilk Rasa Moka","harga":"5000","gambar":"produk_210612_0.jpg"},{"id":"5","nama":"Ultramilk Full Cream","harga":"10000","gambar":"produk_210612_1.jpg"},{"id":"6","nama":"Emani Mozza Sensasi Mozzarella","harga":"29500","gambar":"produk_210612_2.jpg"},{"id":"7","nama":"Oreo Cookie Crumb","harga":"70000","gambar":"produk_210612_3.jpg"},{"id":"8","nama":"Nabati Graker","harga":"6000","gambar":"produk_210612_4.jpg"},{"id":"9","nama":"Nabati Bites","harga":"8000","gambar":"produk_210612_5.jpg"},{"id":"10","nama":"Laverland Crunch","harga":"50000","gambar":"produk_210612_6.jpg"},{"id":"11","nama":"Bulgarian Yogurt","harga":"20000","gambar":"produk_210612_7.jpg"},{"id":"12","nama":"Khong Guan Biscuits","harga":"45000","gambar":"produk_210612_8.jpg"},{"id":"13","nama":"Kata Oma Telur Gabus","harga":"30000","gambar":"produk_210612_9.jpg"},{"id":"14","nama":"dairy milk oreo","harga":"15000","gambar":"produk_210612_10.jpg"},{"id":"15","nama":"Choco Pie Dark","harga":"20000","gambar":"produk_210612_11.jpg"},{"id":"16","nama":"Choco Chips Simba","harga":"20000","gambar":"produk_210612_12.jpg"},{"id":"17","nama":"Biokul Greek Yogurt","harga":"60000","gambar":"produk_210612_13.jpg"}]};
+      // const res = await req.json();
+      if(res.isSuccess===true)
+      {
+        setItem(res.data);
+        setSuccess(1);
+      }
+      else
+      {
+        setSuccess(0);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(()=> {
+    fetchKatalog();
+  },[]);
+  
   return ( 
     <>
+      
       <div className="content">
         <Row>
           <Col lg='12'>
-            <Row>
-            {
-              productKatalog.map((item, i) => {
-                return (
-                    <ProductCard
-                        key = {i}
-                        item = {item}
-                    />
-                );
-                })
+            {isSuccess===0 ? 
+              <Alert color="info">
+              <div className="spinner-border spinner-border-sm" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+              {` Loading .... `}
+              </Alert>
+            :
+            <div>
+            <Alert color="success" isOpen={visible} toggle={onDismiss}>
+              Successfull!
+            </Alert>
+              <Row>
+                {
+                  item.map((item, i) => {
+                    return (
+                        <ProductCard
+                            key = {i}
+                            product = {item}
+                        />
+                    );
+                    })
+                }
+              </Row>
+            </div>
+            
             }
-            </Row>
+            
           </Col>
         </Row>
       </div>

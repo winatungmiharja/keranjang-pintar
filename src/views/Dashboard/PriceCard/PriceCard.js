@@ -5,14 +5,11 @@ import {
     Col, 
     Card, 
     CardBody, 
-    CardTitle, 
-    CardText } from 'reactstrap';
+} from 'reactstrap';
 
 import { 
-    UncontrolledDropdown, 
     DropdownToggle, 
     DropdownMenu,  
-    DropdownItem, 
     UncontrolledButtonDropdown } from 'reactstrap';
 
 import Receipt from "../Receipt/Receipt";
@@ -20,11 +17,7 @@ import Receipt from "../Receipt/Receipt";
 import './PriceCard.scss';
 
 const PriceCard = () => {
-    const [isDropdown, setDropdown] = React.useState(0);
-    const [dropdownIcon, setDropdownIcon] = React.useState('nc-icon nc-minimal-down');
-    const [dropdownWidth, setDropdownWidth] = React.useState(3);
 
-    
     return (
         <Card className='price-card'>
             <h5 className="title text-center price-text-white">Total</h5>
@@ -33,7 +26,6 @@ const PriceCard = () => {
                     <Col xs='9' sm='10' md='9' lg='9'>
                     <h2 className="title text-left price-text-white">Rp 35.400
                     <p className="price-text-dark-blue"> +4.500</p></h2>
-                    
                     
                     </Col>
                     <Col xs='1' sm='1' md='2' lg='1'>

@@ -7,9 +7,8 @@ import PropTypes from "prop-types";
 function Footer(props) {
   return (
     <footer className={"footer" + (props.default ? " footer-default" : "")}>
-      <Container fluid={props.fluid ? true : false}>
+      <Container fluid={props.fluid ? true:false}>
         <Row>
-          
           <div className="credits ml-auto">
             <div className="copyright">
               &copy; {1900 + new Date().getYear()} Keranjang Belanja Pintar Berbasis Komputer Vision dan Sensor untuk Membudayakan Cashier-Less Store

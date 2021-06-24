@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReceiptItem = (props) => {
-  const {item,key} = props;
+  const {item} = props;
     return (
         <tr>
           <th scope="row">
