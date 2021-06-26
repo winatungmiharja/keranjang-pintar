@@ -1,8 +1,10 @@
-
+.katalog-text {
+    margin: 0em;
+}
 
 .katalog-img {
     object-fit: cover;
-    width: 65%;
+    width: 55%;
     height: auto;
     
 }
@@ -13,6 +15,7 @@
 
 .katalog-btn-grp {
     position : absolute;
+    height: 45px;
     bottom:10px;
     right : 15px;
 }

@@ -13,19 +13,16 @@ import {
 //   dashboardNASDAQChart,
 // } from "variables/charts.js";
 
-
-
 import PriceCard from "./PriceCard/PriceCard";
-import Products from "./Products/Products.js";
+import Purchased from "./Purchased/Purchased.js";
 
 const Dashboard = (props) => {
-
   return (
     <>
       <div className="content">
         <Row>
           <Col sm='12' md='8' lg='8'>
-            <Products/>
+            <Purchased/>
           </Col>
           <Col>
             <PriceCard/>
