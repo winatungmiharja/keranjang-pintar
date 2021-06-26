@@ -1,18 +1,17 @@
 
-import React from "react";
+import React,{useCallback} from "react";
 import { Link, useLocation } from "react-router-dom";
+
 import { useCart } from "components/Cart";
 import {
+  Button,
+  Badge,
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Container,
   InputGroup,
   InputGroupText,
@@ -24,7 +23,10 @@ import {
 import routes from "routes.js";
 
 function Header(props) {
+  const {handle} = props
   const items = useCart();
+  
+  
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [color, setColor] = React.useState("transparent");
@@ -37,9 +39,6 @@ function Header(props) {
       setColor("dark");
     }
     setIsOpen(!isOpen);
-  };
-  const dropdownToggle = (e) => {
-    setDropdownOpen(!dropdownOpen);
   };
   const getBrand = () => {
     let brandName = "Default Brand";
@@ -76,9 +75,6 @@ function Header(props) {
       sidebarToggle.current.classList.toggle("toggled");
     }
   }, [location]);
-
-
-  console.log(items);
   
   return (
     // add or remove classes depending if we are on full-screen-maps page or not
@@ -97,8 +93,10 @@ function Header(props) {
       }
     >
       <Container fluid>
+      
         <div className="navbar-wrapper">
           <div className="navbar-toggle">
+          
             <button
               type="button"
               ref={sidebarToggle}
@@ -112,12 +110,14 @@ function Header(props) {
           </div>
           <NavbarBrand href="/">{getBrand()}</NavbarBrand>
         </div>
-        <NavbarToggler onClick={toggle}>
+        <NavbarToggler onClick={toggle} >
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
         </NavbarToggler>
-        <Collapse isOpen={isOpen} navbar className="justify-content-end">
+        
+        <Collapse isOpen={isOpen} navbar className='justify-content-end'>
+    
           <form>
           
             <InputGroup className="no-border">
@@ -129,30 +129,17 @@ function Header(props) {
               </InputGroupAddon>
             </InputGroup>
           </form>
-          <Nav navbar>
-            {items.length}
-            <Dropdown
-              nav
-              isOpen={dropdownOpen}
-              toggle={(e) => dropdownToggle(e)}
-            >
-              <DropdownToggle caret nav>
-                <i className="nc-icon nc-bell-55" />
-                <p>
-                  <span className="d-lg-none d-md-block">Pemberitahuan</span>
-                </p>
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem tag="a">Diskon</DropdownItem>
-                <DropdownItem tag="a">Test</DropdownItem>
-                <DropdownItem tag="a">Test</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+          <Nav navbar> 
+            <Badge color="info" style={{borderRadius:'100px',height:'19px'}}>
+              {items.length}
+            </Badge>
             <NavItem>
-              <Link to="#pablo" className="nav-link btn-rotate">
-                <i className="nc-icon nc-circle-10" />
+              <Link className="nav-link btn-rotate">
+                <i className="nc-icon nc-cart-simple" />
                 <p>
-                  <span className="d-lg-none d-md-block">Akun</span>
+                  <span className="d-lg-none d-md-block">
+                    {items.length===0? "belum ada belanjaan" : `${items.length} item di belanjaanmu`}
+                  </span>
                 </p>
               </Link>
             </NavItem>

@@ -24,10 +24,10 @@ const countTotal = (data) => {
 
 const Belanjaan = () => {
   let total=0;
-  const productObj = useCart();
-  if(productObj.length > 0)
+  const purchasedItem = useCart();
+  if(purchasedItem.length > 0)
   {
-    total = countTotal(productObj)
+    total = countTotal(purchasedItem)
   }
   return (
     <>
@@ -40,7 +40,7 @@ const Belanjaan = () => {
             <hr/>
             <Row>
               <Col>
-                <h6>SubTotal{' '}<span className='small text-info'>({productObj.length} products)</span></h6>
+                <h6>SubTotal{' '}<span className='small text-info'>({purchasedItem.length} products)</span></h6>
                 {/* <h6>Potongan</h6> */}
                 
               </Col>
@@ -86,7 +86,7 @@ const Belanjaan = () => {
           </div>
           </Col>
           <Col md="7">
-            <TableItem items={productObj}></TableItem>
+            <TableItem items={purchasedItem}></TableItem>
           </Col>
           
         </Row>

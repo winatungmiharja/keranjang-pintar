@@ -29,8 +29,6 @@ const Register = ({setRegister,user,setUser}) => {
     // .then(res => res.json())
     // .then(data => console.log(data))
     // .then(setRegister(1))
-
-    console.log(user);
     setRegister(1);
   };
 

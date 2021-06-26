@@ -1,42 +1,22 @@
-import React, {useState, useRef, useEffect, useReducer} from "react";
+import React, {useState, useRef, useEffect} from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch, useLocation } from "react-router-dom";
+
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
 import './Admin.css';
 import routes from "routes";
 
-
 var ps;
-
-const initialBasket = {
-  total : 0,
-  items : {}
-}
-
-const reducerBasket = (state,action) => {
-  switch (action.type) {
-    case "UPDATE":
-      const tempData = {...state.items};
-      
-
-      break;
-  
-    default:
-      break;
-  }
-}
 const Admin = (props) => {
-  const [basket, dispatch] = useReducer(reducerBasket, initialBasket);
-
   const [backgroundColor, setBackgroundColor] = useState("black");
   const [activeColor, setActiveColor] = useState("info");
   const mainPanel = useRef();
   const location = useLocation();
-  
+  const handle = useFullScreenHandle();
   
 
   useEffect(() => {
@@ -71,21 +51,28 @@ const Admin = (props) => {
 
 
   return (
+    
+    <FullScreen handle={handle}>
+    
     <div className="wrapper">
+    
       <Sidebar
         {...props}
         routes={routes}
         bgColor={backgroundColor}
         activeColor={activeColor}
-        
       />
+      
       <div className="main-panel" ref={mainPanel}>
-        <DemoNavbar {...props} />
+        <DemoNavbar {...props} handle={handle}/>
+       
         <Switch>
           {routes.map((prop, key) => {
+          
             return (
               <Route
                 path={prop.layout + prop.path}
+                user={props.user}
                 key={key}
                 component={prop.component}
               />
@@ -100,7 +87,9 @@ const Admin = (props) => {
         handleActiveClick={handleActiveClick}
         handleBgClick={handleBgClick}
       />
+      
     </div>
+    </FullScreen>
   );
 }
 

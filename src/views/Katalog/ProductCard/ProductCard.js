@@ -33,24 +33,23 @@ const ProductCard = ({product}) => {
     }
     
     return (
-        <Col xs='12' sm='4' md='4' lg='3'>
+        <Col  xs='6' sm='4' md='3' lg='3'>
         <Card style={{height: '92%'}} >
             <div className='d-flex justify-content-center'>
             <CardImg src={`https://keranjang-pintar.herokuapp.com/gambar/${product.gambar}`} alt="..." className='katalog-img'/>
             </div>
             <CardBody>
-            
                 <div>
-                    <Badge color="success katalog-badge"><p className='katalog-badge-text'>Rp {product.harga}</p></Badge>
+                    <Badge color="success katalog-badge"><p className='katalog-badge-text katalog-text'>Rp {product.harga}</p></Badge>
                 </div>
-                <p className="h5 katalog-title">{product.nama}</p>
+                <p className="h5 katalog-title katalog-text">{product.nama}</p>
                 <div class="btn-group btn-group-sm katalog-btn-grp" role="group" aria-label="...">
                 <button type="button" class="btn btn-primary" onClick={() => addToCart(product)}><p>Add</p></button>
                     <button type="button" class="btn btn-secondary" onClick={decrement}><i className='nc-icon nc-simple-delete'></i></button>
                     <button class="btn btn-secondary">{jumlah}</button>
-                    <button type="button" class="btn btn-secondary" onClick={increment}><i className='nc-icon nc-simple-add'></i></button>
-                    
+                    <button type="button" class="btn btn-secondary" onClick={increment}><i className='nc-icon nc-simple-add'></i></button> 
                 </div>
+                <br/>
                 <br/>
                 <br/>  
             </CardBody>
