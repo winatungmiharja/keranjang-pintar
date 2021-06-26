@@ -1,0 +1,68 @@
+p {
+    margin: 0em;
+}
+.purchased-text {
+    margin: 0em;
+}
+
+/* card */
+.purchased-card {
+    padding:10px;
+}
+
+
+
+/* image */
+.purchased-img {
+    width: 70%;
+    background-color: violet;
+    
+}
+
+
+
+
+.purchased-text-top {
+    display: flex;
+    
+}
+
+.purchased-text-jumlah {
+    text-align: right;
+    position : absolute;
+    right : 20px;
+    bottom : 20px;
+    transition: all 1s;
+}
+
+
+/* title */
+.purchased-title {
+    font-size: 20px;
+}
+
+/* price text */
+.purchased-price-text{
+    font-size: 16px;
+}
+/* edit button */
+.purchased-btn-edit {
+    position : absolute;
+    right : 20px;
+    top : 20px;
+    background-color: transparent;
+    border-color: transparent;
+}
+.purchased-badge-text {
+    color:black;
+    font-size: 12px;
+}
+.purchased-badge-text:hover {
+    color : #a5a5a5;
+}
+
+/* collapse group */
+.purchased-btn-grp {
+    padding-left: 10px;
+    padding-right: 10px;
+}
