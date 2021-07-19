@@ -32,7 +32,6 @@ const App = () => {
                     setRegister={setRegister} 
                     user={user}
                     setUser={setUser}></Register></Col>
-                    
                 </Row>
             </Container>}
         </div>

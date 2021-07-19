@@ -6,9 +6,10 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+import Camera from "components/Camera/Camera";
 import './Admin.css';
 import routes from "routes";
+
 
 var ps;
 const Admin = (props) => {
@@ -64,7 +65,13 @@ const Admin = (props) => {
       />
       
       <div className="main-panel" ref={mainPanel}>
-        <DemoNavbar {...props} handle={handle}/>
+        <DemoNavbar {...props} 
+        handle={handle} 
+        bgColor={backgroundColor}
+        activeColor={activeColor}
+        handleActiveClick={handleActiveClick}
+        handleBgClick={handleBgClick}
+        />
        
         <Switch>
           {routes.map((prop, key) => {
@@ -81,13 +88,7 @@ const Admin = (props) => {
         </Switch>
         <Footer fluid />
       </div>
-      <FixedPlugin
-        bgColor={backgroundColor}
-        activeColor={activeColor}
-        handleActiveClick={handleActiveClick}
-        handleBgClick={handleBgClick}
-      />
-      
+      <Camera/>
     </div>
     </FullScreen>
   );
