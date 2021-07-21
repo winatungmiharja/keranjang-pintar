@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { WebcamCapture } from "./Webcam";
-
 
 const Camera = (props) => {
   const [modal, setModal] = useState(false);
@@ -23,11 +22,15 @@ const Camera = (props) => {
         <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={close}>Camera</ModalHeader>
         <ModalBody>
-          <WebcamCapture image={image} setImage={setImage}></WebcamCapture>
+          <WebcamCapture 
+            image={image} 
+            setImage={setImage}
+            setItem={setItem}/>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Capture</Button>{' '}
-          <Button color="secondary" onClick={close}>Cancel</Button>
+          {item!==''&&<p>{item}</p>}
+          <Button color="primary" onClick={toggle} >Submit</Button>{' '}
+          <Button color="secondary" >Cancel</Button>
         </ModalFooter>
       </Modal>
       </div>
