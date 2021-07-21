@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from 'react';
 
-
-const FixedPlugin = (props) => {
-  const [classes, setClasses] = React.useState("dropdown show");
+const Settings = (props) => {
+    
+  const [classes, setClasses] = useState("dropdown show");
   const handleClick = () => {
     if (classes === "dropdown") {
       setClasses("dropdown show");
@@ -11,12 +11,12 @@ const FixedPlugin = (props) => {
     }
   };
   return (
-    <div className="fixed-plugin">
+    <div className="fixed-plugin" style={{top:0,position:'relative',backgroundColor:'#F4F4EF'}}>
       <div className={classes}>
         <div onClick={handleClick}>
-          <i className="fa fa-cog fa-2x" />
+          <i className="nc-icon nc-settings-gear-65" />
         </div>
-        <ul className="dropdown-menu show">
+        <ul className="dropdown-menu show" style={{top:"0px",position:'absolute',backgroundColor:'#F4F4EF'}}>
           <li className="header-title">WARNA LATAR MENU</li>
           <li className="adjustments-line">
             <div className="badge-colors text-center">
@@ -104,14 +104,10 @@ const FixedPlugin = (props) => {
               />
             </div>
           </li>
-          
-
-          
-          <p className="blockquote-footer">Keranjang Pintar <br/>Keranjang Belanja Pintar Berbasis Komputer Vision dan Sensor untuk Membudayakan Cashier-Less Store<br/><cite title="">Institut Teknologi Sepuluh Nopember</cite></p>
         </ul>
       </div>
     </div>
   );
 }
 
-export default FixedPlugin;
+export default Settings;

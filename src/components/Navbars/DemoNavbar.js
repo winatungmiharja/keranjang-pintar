@@ -12,6 +12,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
+  NavLink,
   Container,
   InputGroup,
   InputGroupText,
@@ -21,17 +22,17 @@ import {
 
 
 import routes from "routes.js";
+import Settings from "./Settings";
 
-function Header(props) {
-  const {handle} = props
-  const items = useCart();
-  
-  
+const Header = (props) => {
+  const {handle} = props;
+  const {bgColor,activeColor,handleActiveClick,handleBgClick} = props;
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [color, setColor] = React.useState("transparent");
   const sidebarToggle = React.useRef();
   const location = useLocation();
+  const items = useCart();
   const toggle = () => {
     if (isOpen) {
       setColor("transparent");
@@ -56,7 +57,7 @@ function Header(props) {
   };
   // function that adds color dark/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
-    if (window.innerWidth < 993 && isOpen) {
+    if (window.innerWidth < 900 && isOpen) {
       setColor("dark");
     } else {
       setColor("transparent");
@@ -68,7 +69,7 @@ function Header(props) {
 
   React.useEffect(() => {
     if (
-      window.innerWidth < 993 &&
+      window.innerWidth < 900 &&
       document.documentElement.className.indexOf("nav-open") !== -1
     ) {
       document.documentElement.classList.toggle("nav-open");
@@ -96,7 +97,6 @@ function Header(props) {
       
         <div className="navbar-wrapper">
           <div className="navbar-toggle">
-          
             <button
               type="button"
               ref={sidebarToggle}
@@ -115,11 +115,9 @@ function Header(props) {
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
         </NavbarToggler>
-        
         <Collapse isOpen={isOpen} navbar className='justify-content-end'>
-    
+          <Nav navbar> 
           <form>
-          
             <InputGroup className="no-border">
               <Input placeholder="Cari Produk..." />
               <InputGroupAddon addonType="append">
@@ -129,19 +127,27 @@ function Header(props) {
               </InputGroupAddon>
             </InputGroup>
           </form>
-          <Nav navbar> 
-            <Badge color="info" style={{borderRadius:'100px',height:'19px'}}>
-              {items.length}
-            </Badge>
             <NavItem>
-              <Link className="nav-link btn-rotate">
+              <NavLink href="#"><div style={{position:'relative'}}>
                 <i className="nc-icon nc-cart-simple" />
-                <p>
-                  <span className="d-lg-none d-md-block">
-                    {items.length===0? "belum ada belanjaan" : `${items.length} item di belanjaanmu`}
-                  </span>
-                </p>
-              </Link>
+                <Badge color="info" style={{position:'absolute',top:'0',left:'20px',borderRadius:'100px',height:'19px'}}>
+                  {items.length}
+                </Badge>
+                </div></NavLink>
+            </NavItem>
+            {window.innerWidth >= 900 && <NavItem>
+              <NavLink href="#">
+              <Settings 
+                  bgColor={bgColor}
+                  activeColor={activeColor}
+                  handleActiveClick={handleActiveClick}
+                  handleBgClick={handleBgClick}>   
+                </Settings>
+              </NavLink>
+            </NavItem>}
+            
+            <NavItem>
+              <NavLink onClick={handle.enter}><i className="nc-icon nc-map-big" /></NavLink>
             </NavItem>
           </Nav>
         </Collapse>
