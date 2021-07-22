@@ -1,10 +1,13 @@
 #`keranjang-pintar`
-View [Current Website](https://winatungmiharja.github.io/keranjang-pintar/)
+View [Current Website](https://keranjang-pintar.id/)
 
-## `Currently...!`
-- Working on payment and connect to server
-- More scallable component and user friendly
-- Those miss alignment and bugs are really distracting :)
+## `Done`:100:
+- Integrating Product-Recognition Model into Front End and Webcam Device :person_white_hair:
+- Connecting to Database :technologist: (for demo purpose, I disconnect it)
+- Responsive UI 🤗
+
+## `Currently...!`:books:
+- Working on some UI improvements to make it more aesthetically pleasing:)
 
 
 ## `Overview`
