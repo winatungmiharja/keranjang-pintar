@@ -7,13 +7,20 @@ import Navbar from "../components/Navbars/Index.js";
 import Footer from "../components/Footer/Index.js";
 import Sidebar from "../components/Sidebar/Index.js";
 import Camera from "../components/Camera/Index.js";
+import Dashboard from "./_Dashboard/Index.js";
+import Katalog from "./_Katalog/Index.js";
+import Belanjaan from "./_Belanjaan/Index.js";
+import Pembayaran from "./_Pembayaran/Index.js";
+import Tentang from "./_Tentang/Index.js";
 
-import routes from "../routes";
+// import routes from "../routes";
 
 let ps;
 const Admin = (props) => {
   const [backgroundColor, setBackgroundColor] = useState("black");
   const [activeColor, setActiveColor] = useState("info");
+
+  const [focusedPath, setFocusedPath] = useState("");
 
   const mainPanel = useRef();
   const location = useLocation();
@@ -49,6 +56,50 @@ const Admin = (props) => {
     setBackgroundColor(color);
   };
 
+  const routes = [
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: "nc-icon nc-tile-56",
+      component: <Dashboard />,
+      layout: "/admin",
+      active: "danger",
+    },
+    {
+      path: "/katalog",
+      name: "Katalog",
+      icon: "nc-icon nc-book-bookmark",
+      component: <Katalog />,
+      layout: "/admin",
+      active: "success",
+    },
+    {
+      path: "/belanjaan",
+      name: "Belanjaan",
+      icon: "nc-icon nc-basket",
+      component: <Belanjaan />,
+      layout: "/admin",
+      active: "primary",
+    },
+    {
+      path: "/pembayaran",
+      name: "Pembayaran",
+      icon: "nc-icon nc-credit-card",
+      component: <Pembayaran setFocusedPath={setFocusedPath} />,
+      layout: "/admin",
+      active: "warning",
+    },
+    {
+      pro: true,
+      path: "/tentang",
+      name: "Tentang Kami",
+      icon: "nc-icon nc-alert-circle-i",
+      component: <Tentang />,
+      layout: "/admin",
+      active: "info",
+    },
+  ];
+
   return (
     <FullScreen handle={handle}>
       <div className="wrapper">
@@ -57,6 +108,7 @@ const Admin = (props) => {
           routes={routes}
           bgColor={backgroundColor}
           activeColor={activeColor}
+          focusedPath={focusedPath}
         />
         <div className="main-panel" ref={mainPanel}>
           <Navbar
@@ -73,7 +125,7 @@ const Admin = (props) => {
                 <Route
                   path={prop.layout + prop.path}
                   key={key}
-                  component={prop.component}
+                  render={() => prop.component}
                 />
               );
             })}

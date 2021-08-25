@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatchCart } from "../../../api/Cart";
-import { useUser } from "../../../api/User";
-
+import {
+  addPurchasedItem,
+  removePurchasedItem,
+} from "../../../api/CartOperation";
 import {
   Badge,
   Button,
@@ -16,31 +18,31 @@ import {
   DropdownToggle,
 } from "reactstrap";
 
-import { addItem } from "../../../api/CartOperation.js";
 import "./_PurchasedCard.css";
 
 const PurchasedCard = ({ purchasedItem, user }) => {
   const dispatch = useDispatchCart();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [count, setCount] = useState(purchasedItem.jumlah);
+  const [count, setCount] = useState(parseInt(purchasedItem.jumlah));
+
   const dropdownToggle = (e) => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const addToCart = (item, user) => {
-    let update = addItem(item, user);
-    update.then((data) => dispatch({ type: "ADD", data }));
+  const addToCart = (item) => {
+    addPurchasedItem(item).then((data) => dispatch({ type: "ADD", data }));
   };
 
-  const deleteFromCart = (item, user) => {
-    let update = removeItem(item, user);
-    update.then((data) => dispatch({ type: "REMOVE", data }));
+  const deleteFromCart = (item) => {
+    removePurchasedItem(item).then((data) =>
+      dispatch({ type: "REMOVE", data })
+    );
   };
 
   const editItem = (item) => {
     if (count > purchasedItem.jumlah) {
-      addToCart(item, user);
+      addToCart(item);
     } else if (count < purchasedItem.jumlah && count > 0) {
       deleteFromCart(item, user);
     }
@@ -54,8 +56,9 @@ const PurchasedCard = ({ purchasedItem, user }) => {
     const item = { ...data };
     dispatch({ type: "DELETE", item, user });
   };
+
   const increment = () => {
-    setCount(count + 1);
+    setCount((count) => count + 1);
   };
   const decrement = () => {
     count === 0 ? setCount(0) : setCount(count - 1);

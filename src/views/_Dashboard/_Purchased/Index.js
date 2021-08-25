@@ -11,7 +11,7 @@ const Purchased = (props) => {
   return purchasedItem.length !== 0 ? (
     <Row>
       <Col xs="12" sm="12" lg="12">
-        <p className="text-muted">{`Recent Purchased from ${props.user}`}</p>
+        <p className="text-muted">{`Recent Purchased from ${props.user.name}`}</p>
         <hr className="my-2" />
         <Row>
           {purchasedItem.map((item) => {
@@ -23,7 +23,7 @@ const Purchased = (props) => {
   ) : (
     <div>
       <Jumbotron>
-        <h3 className="display-3">Hai!</h3>
+        <h3 className="display-3">{`Hai ${props.user.name}!!`}</h3>
         <p className="lead">
           Supermarket ini menggunakkan teknologi Keranjang Pintar, Kamu hanya
           perlu memasukkan barang belanjaanmu

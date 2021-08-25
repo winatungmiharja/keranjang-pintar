@@ -1,15 +1,14 @@
-
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { Nav } from "reactstrap";
+import { NavLink as NavRouter } from "react-router-dom";
+import { Nav, NavLink, NavItem } from "reactstrap";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
-
 var ps;
 
-function Sidebar(props) {
-  
+const Sidebar = (props) => {
+  const { focusedPath } = props;
+
   const sidebar = React.useRef();
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
@@ -35,38 +34,66 @@ function Sidebar(props) {
       data-active-color={props.activeColor}
     >
       <div className="logo">
-      <a className="simple-text logo-mini">
-            <i className='nc-icon nc-bulb-63'></i>
+        <a className="simple-text logo-mini">
+          <i className="nc-icon nc-bulb-63"></i>
         </a>
-        <a className="simple-text logo-normal">
-          Keranjang pintar
-        </a>
+        <a className="simple-text logo-normal">Keranjang pintar</a>
       </div>
       <div className="sidebar-wrapper" ref={sidebar}>
-        <Nav>
-          {props.routes.map((prop, key) => {
-            return (
-              <li
-                className={
-                  activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
-                }
-                key={key}
-              >
-                <NavLink
-                  to={prop.layout + prop.path}
-                  className="nav-link"
-                  activeClassName="active"
+        {focusedPath ? (
+          <Nav>
+            {props.routes.map((prop, key) => {
+              return (
+                <li
+                  className={
+                    activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
+                  }
+                  key={key}
                 >
-                  <i className={prop.icon} />
-                  <p>{prop.name}</p>
-                </NavLink>
-              </li>
-            );
-          })}
-        </Nav>
+                  {prop.path === focusedPath ? (
+                    <NavLink className="nav-link" activeClassName="active">
+                      <i className={prop.icon} />
+                      <p>{prop.name}</p>
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      disabled
+                      style={{ cursor: "context-menu", opacity: 0.1 }}
+                    >
+                      <i className={prop.icon} />
+                      <p>{prop.name}</p>
+                    </NavLink>
+                  )}
+                </li>
+              );
+            })}
+          </Nav>
+        ) : (
+          <Nav>
+            {props.routes.map((prop, key) => {
+              return (
+                <li
+                  className={
+                    activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
+                  }
+                  key={key}
+                >
+                  <NavRouter
+                    to={prop.layout + prop.path}
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    <i className={prop.icon} />
+                    <p>{prop.name}</p>
+                  </NavRouter>
+                </li>
+              );
+            })}
+          </Nav>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;

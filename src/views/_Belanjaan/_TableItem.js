@@ -8,7 +8,7 @@ const TableItem = ({ items }) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle tag="h4">Rincian</CardTitle>
+        <CardTitle tag="p">Rincian Pembelian</CardTitle>
         <hr />
       </CardHeader>
       <CardBody>

@@ -8,7 +8,7 @@ const PurchasedItem = (props) => {
     <tr className="item-container">
       <td className="d-flex justify-content-center item-photo">
         <img
-          className="item-image"
+          style={{ maxHeight: "80px" }}
           src={`https://keranjang-pintar.herokuapp.com/gambar/${item.gambar}`}
           alt="..."
         />

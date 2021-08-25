@@ -11,6 +11,11 @@ const setItem = (action) => {
   return action.data;
 };
 
+const removeItem = (action) => {
+  console.log(action.data);
+  return action.data;
+};
+
 const addItem = (action) => {
   console.log(action.data);
   return action.data;
@@ -27,12 +32,11 @@ const addItem = (action) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH":
-      console.log(action.data);
       return setItem(action);
     case "ADD":
       return addItem(action);
-    // case "REMOVE":
-    //   return removeItem(state,action);
+    case "REMOVE":
+      return removeItem(action);
     // case "DELETE":
     //   return deleteItem(state,action);
 
