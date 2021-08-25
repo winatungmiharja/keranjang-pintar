@@ -1,8 +1,8 @@
-import Dashboard from "views/Dashboard/Dashboard.js";
-import Katalog from "views/Katalog/Katalog.js";
-import Belanjaan from "views/Belanjaan/Belanjaan.js";
-import Tentang from "views/Tentang.js";
-import Pembayaran from "views/Pembayaran.js";
+import Dashboard from "views/_Dashboard/Index.js";
+import Katalog from "views/_Katalog/Index.js";
+import Belanjaan from "views/_Belanjaan/Index.js";
+import Tentang from "views/_Tentang/Index.js";
+import Pembayaran from "views/_Pembayaran/Index.js";
 
 const routes = [
   {
@@ -11,7 +11,7 @@ const routes = [
     icon: "nc-icon nc-tile-56",
     component: Dashboard,
     layout: "/admin",
-    active : "danger",
+    active: "danger",
   },
   {
     path: "/katalog",
@@ -19,7 +19,7 @@ const routes = [
     icon: "nc-icon nc-book-bookmark",
     component: Katalog,
     layout: "/admin",
-    active : "success",
+    active: "success",
   },
   {
     path: "/belanjaan",
@@ -27,7 +27,7 @@ const routes = [
     icon: "nc-icon nc-basket",
     component: Belanjaan,
     layout: "/admin",
-    active : "primary",
+    active: "primary",
   },
   {
     path: "/pembayaran",
@@ -35,7 +35,7 @@ const routes = [
     icon: "nc-icon nc-credit-card",
     component: Pembayaran,
     layout: "/admin",
-    active : "warning",
+    active: "warning",
   },
   {
     pro: true,
@@ -44,7 +44,7 @@ const routes = [
     icon: "nc-icon nc-alert-circle-i",
     component: Tentang,
     layout: "/admin",
-    active : "info",
+    active: "info",
   },
 ];
 export default routes;

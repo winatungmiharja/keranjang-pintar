@@ -3562,7 +3562,7 @@ License - nucleoapp.com/license/
     transition: all .34s;
     -webkit-transition: all .34s;
     -moz-transition: all .34s; }
-  .fixed-plugin .fa-cog {
+  .fixed-plugin .fa-cart-plus {
     color: #FFFFFF;
     padding: 10px;
     border-radius: 0 0 6px 6px;
@@ -4807,3 +4807,5 @@ License - nucleoapp.com/license/
   outline: none; }
 
 /*# sourceMappingURL=paper-dashboard.css.map */
+
+
